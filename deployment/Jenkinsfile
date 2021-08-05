@@ -17,7 +17,7 @@ podTemplate(
 	node(label) {
 		stage("Get Source") {
 			//git url:"https://github.com/happykube/hellonode.git", branch: "main", credentialsId: "git_credential"
-		    git branch: 'main', credentialsId: 'ny726', url: 'https://github.com/ny726/kny.git'
+		    git branch: 'main', credentialsId: 'jenkins', url: 'https://github.com/ny726/kny.git'
         } 
 
 		//-- 환경변수 파일 읽어서 변수값 셋팅 
