@@ -33,7 +33,7 @@ podTemplate(
 		def namespace = props["namespace"]
 
 		try {
-			/*stage("Build Microservice image") {
+			stage("Build Microservice image") {
 				container("docker") {
 					docker.withRegistry("", "${credential_registry}") {
 						sh "docker build -f ./deployment/Dockerfile -t ${image}:${tag} ."
@@ -42,7 +42,7 @@ podTemplate(
 						sh "docker push ${image}:latest"
 					}
 				}
-			}*/
+			}
       
 			stage( "Deploy to Cluster" ) {
 				container("kubectl") {
