@@ -35,7 +35,7 @@ podTemplate(
 		try {
 			stage("Build Microservice image") {
 				container("docker") {
-					docker.withRegistry("https://registry.hub.docker.com", "dockerhubny") {
+					docker.withRegistry("https://registry.hub.docker.com", "ny726") {
 						sh "docker build -f ./deployment/Dockerfile -t ${image}:${tag} ."
 						sh "docker push ${image}:${tag}"
 						sh "docker tag ${image}:${tag} ${image}:latest"
