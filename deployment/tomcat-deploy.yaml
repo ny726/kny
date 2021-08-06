@@ -23,6 +23,7 @@ spec:
       containers:
       - name: tomcat
         image: ny726/tomcat:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         
