@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: tomcat
-        image: ny726/tomcat
+        image: ny726/tomcat:latest
         ports:
         - containerPort: 8080
         
