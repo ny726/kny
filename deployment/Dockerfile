@@ -1,3 +1,3 @@
 FROM tomcat:latest
 
-COPY ./index.html /usr/local/tomcat/webapps/ROOT/index.html
+COPY ./deployment/index.html /usr/local/tomcat/webapps/ROOT/index.html
