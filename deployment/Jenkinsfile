@@ -47,7 +47,7 @@ podTemplate(
 			stage( "Deploy to Cluster" ) {
 				container("kubectl") {
 					sh "sed -i.bak 's#latest#${tag}#' ${deployment}"
-					sh "kubectl apply -n ${namespace} -f ${deployment}"
+					sh "kubectl apply -n ${namespace} -f ${deployment} --record"
 					sh "sleep 5"
 					sh "kubectl apply -n ${namespace} -f ${service}"
 				}
