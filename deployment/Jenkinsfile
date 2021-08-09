@@ -15,7 +15,7 @@ podTemplate(
 ) 
 {
 	node(label) {
-		stage("Get Source") {
+		stage("Pull") {
 			//git url:"https://github.com/happykube/hellonode.git", branch: "main", credentialsId: "git_credential"
 		    git branch: 'main', credentialsId: 'github', url: 'https://github.com/ny726/kny.git'
         } 
@@ -33,12 +33,19 @@ podTemplate(
 		def namespace = props["namespace"]
 
 		try {
-			stage("Build Microservice image") {
+			stage("Build") {
 				container("docker") {
 					docker.withRegistry("${dockerRegistry}", "${credential_registry}") {
 						sh "docker build --no-cache -f ./deployment/Dockerfile -t ${image}:${tag} ."
 						sh "docker push ${image}:${tag}"
 						sh "docker tag ${image}:${tag} ${image}:latest"
+					}
+				}
+			}
+			
+			stage("Push") {
+				container("docker") {
+					docker.withRegistry("${dockerRegistry}", "${credential_registry}") 
 						sh "docker push ${image}:latest"
 					}
 				}
