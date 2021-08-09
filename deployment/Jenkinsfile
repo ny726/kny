@@ -45,7 +45,7 @@ podTemplate(
 			
 			stage( "Test" ) {
 				container("docker") {
-					sh "docker run -it --rm ${image}:${tag} /bin/bash"
+					sh "docker run -it ${image}:${tag} /bin/bash"
 				}
 				
 				container("kubectl") {
