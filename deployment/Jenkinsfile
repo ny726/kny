@@ -45,7 +45,7 @@ podTemplate(
 			
 			stage("Push") {
 				container("docker") {
-					docker.withRegistry("${dockerRegistry}", "${credential_registry}") 
+					docker.withRegistry("${dockerRegistry}", "${credential_registry}") {
 						sh "docker push ${image}:latest"
 					}
 				}
