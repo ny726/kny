@@ -43,6 +43,16 @@ podTemplate(
 				}
 			}
 			
+			stage( "Test" ) {
+				container("docker") {
+					sh "docker run -it --rm ${image}:${tag} /bin/bash"
+				}
+				
+				container("kubectl") {
+					sh "curl http://localhost:8080"
+				}
+			}
+			
 			stage("Push") {
 				container("docker") {
 					docker.withRegistry("${dockerRegistry}", "${credential_registry}") {
