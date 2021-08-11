@@ -37,7 +37,6 @@ podTemplate(
 				container("docker") {
 					docker.withRegistry("${dockerRegistry}", "${credential_registry}") {
 						sh "docker build --no-cache -f ./deployment/Dockerfile -t ${image}:${tag} ."
-						sh "docker push ${image}:${tag}"
 						sh "docker tag ${image}:${tag} ${image}:latest"
 					}
 				}
@@ -46,6 +45,7 @@ podTemplate(
 			stage("Push") {
 				container("docker") {
 					docker.withRegistry("${dockerRegistry}", "${credential_registry}") {
+						sh "docker push ${image}:${tag}"
 						sh "docker push ${image}:latest"
 					}
 				}
