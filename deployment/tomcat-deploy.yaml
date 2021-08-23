@@ -5,7 +5,7 @@ metadata:
   labels:
     app: tomcat
 spec:
-  replicas: 10
+  replicas: 5
   strategy:
     type: RollingUpdate
     rollingUpdate:
