@@ -16,7 +16,6 @@ podTemplate(
 {
 	node(label) {
 		stage("Pull") {
-			//git url:"https://github.com/happykube/hellonode.git", branch: "main", credentialsId: "git_credential"
 		    git branch: 'main', credentialsId: 'github', url: 'https://github.com/ny726/kny.git'
         } 
 
