@@ -19,6 +19,7 @@ spec:
     metadata:
       labels:
         app: tomcat
+        ver: latest
     spec:
       containers:
       - name: tomcat
